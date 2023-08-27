@@ -55,7 +55,9 @@ public class WebSecurityConfig {
 //                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and().authenticationProvider(authenticationProvider)
 //                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-        http.authorizeHttpRequests(auth -> auth.anyRequest().anonymous()).formLogin(Customizer.withDefaults());
+        http.csrf().disable()
+            .cors().disable()
+            .authorizeHttpRequests(auth -> auth.anyRequest().anonymous()).formLogin(Customizer.withDefaults());
         return http.build();
     }
 }

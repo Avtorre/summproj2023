@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Test {
-    @GetMapping()
+    @GetMapping("")
     public String test(@NonNull HttpServletRequest request) {
         return request.getHeader("User-Agent");
     }
