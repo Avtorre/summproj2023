@@ -28,7 +28,11 @@ public class Room {
     @JoinColumn(name = "type", referencedColumnName = "id")
     private RoomType type;
 
-    @CreationTimestamp
+    @Column(nullable = false)
+    @Value("true")
+    private Boolean active;
+
+    @Value("null")
     private Date lastCleaning;
 
     @CreationTimestamp

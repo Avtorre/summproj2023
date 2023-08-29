@@ -37,6 +37,7 @@ public class Account implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private Role role = Role.USER;
 
     @CreationTimestamp

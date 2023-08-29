@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,8 +25,9 @@ public class Reservation {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Account userId;
 
-    @Column(nullable = false, length = 256, unique = true)
-    private String rooms;
+    @ManyToOne
+    @Column(nullable = false)
+    private List<Room> rooms;
 
     @CreationTimestamp
     @Column(nullable = false)
@@ -47,6 +49,5 @@ public class Reservation {
     @Column(nullable = false)
     @Value("NOW()")
     private Date creationDate;
-
 
 }

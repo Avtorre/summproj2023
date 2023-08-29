@@ -2,8 +2,6 @@ package com.sumprjct.hotel.responseRequests;
 
 import java.util.Date;
 
-import com.sumprjct.hotel.responseRequests.RoomTypeResponse;
-import com.sumprjct.hotel.entities.RoomType;
 import com.sumprjct.hotel.entities.Room;
 
 import lombok.Data;
@@ -17,6 +15,8 @@ public class RoomResponseFull {
 
     private RoomTypeResponse type;
 
+    private Boolean active;
+
     private Date lastCleaning;
 
     private Date creationDate;
@@ -26,6 +26,7 @@ public class RoomResponseFull {
         this.number = room.getNumber();
         this.type = room.getType() != null ?
             new RoomTypeResponse(room.getType()) : null;
+        this.active = room.getActive();
         this.lastCleaning = room.getLastCleaning();
         this.creationDate = room.getCreationDate();
     }
