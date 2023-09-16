@@ -7,4 +7,5 @@ import com.sumprjct.hotel.entities.RoomType;
 public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
 
     
+    
 }

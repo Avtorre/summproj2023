@@ -8,9 +8,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import com.sumprjct.hotel.dao.ConfirmCodeRepository;
 import com.sumprjct.hotel.entities.Account;
+import com.sumprjct.hotel.responseRequests.AuthenticationRequest;
+import com.sumprjct.hotel.responseRequests.RegisterRequest;
+import com.sumprjct.hotel.service.AccountService;
 import com.sumprjct.hotel.service.UserService;
 
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.*;
 import jakarta.validation.Valid;
 import lombok.*;
@@ -19,7 +24,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @Validated
 public class AuthController {
-    private final UserService service;
+    private final AccountService service;
     private final ConfirmCodeRepository confirmCodeRepository;
 
     @PostMapping("/register")

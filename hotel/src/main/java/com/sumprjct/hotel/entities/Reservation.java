@@ -26,7 +26,7 @@ public class Reservation {
     private Account userId;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn()
     private List<Room> rooms;
 
     @CreationTimestamp
