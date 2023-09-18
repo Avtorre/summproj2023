@@ -41,7 +41,7 @@ public class RoomTypeService {
     }
 
     public Boolean available(Long id) {
-        return !roomRepository.available(id).isEmpty();
+        return true;
     }
     
 }
