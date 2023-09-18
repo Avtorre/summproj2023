@@ -25,7 +25,7 @@ public class Reservation {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Account userId;
 
-    @ManyToOne
+    @ManyToMany(targetEntity = Room.class, cascade = CascadeType.MERGE)
     @JoinColumn()
     private List<Room> rooms;
 

@@ -27,6 +27,12 @@ public class RoomTypeController {
         return roomTypeService.getRoomTypes().stream().map(RoomTypeResponse::new).toList();
     }
 
+    @GetMapping("/{id}/available")
+    public Boolean getRoomCount(@PathVariable Long id) {
+        roomTypeService.available(id);
+        return false;
+    }
+
     @PostMapping()
     public Long addRoomType(@Valid @RequestBody RoomTypeRequest roomType) {
         return roomTypeService.addRoomType(roomType);

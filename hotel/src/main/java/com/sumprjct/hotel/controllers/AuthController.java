@@ -34,9 +34,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String authenticate(@Valid @RequestBody AuthenticationRequest request, @NonNull HttpServletResponse response) {
+    public ResponseEntity<String> authenticate(@Valid @RequestBody AuthenticationRequest request, @NonNull HttpServletResponse response) {
         service.authenticate(request, response);
-        return "ok";
+        return new ResponseEntity<String>("ok", HttpStatus.OK);
     }
 
     @GetMapping("/check")

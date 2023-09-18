@@ -80,6 +80,8 @@ public class AccountService {
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request, @NonNull HttpServletResponse response) {
+        System.out.println(request.getEmail());
+        System.out.println(request.getPassword());
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),

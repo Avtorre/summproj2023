@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sumprjct.hotel.dao.RoomRepository;
 import com.sumprjct.hotel.dao.RoomTypeRepository;
 import com.sumprjct.hotel.entities.Image;
 import com.sumprjct.hotel.entities.RoomType;
@@ -16,6 +17,7 @@ import lombok.AllArgsConstructor;
 public class RoomTypeService {
 
     private final RoomTypeRepository roomTypeRepository;
+    private final RoomRepository roomRepository;
 
     public List<RoomType> getRoomTypes() {
         return roomTypeRepository.findAll();
@@ -36,6 +38,10 @@ public class RoomTypeService {
             .guestCount(room.getGuestCount())
             .build();
         return roomTypeRepository.save(roomType).getId();
+    }
+
+    public Boolean available(Long id) {
+        return !roomRepository.available(id).isEmpty();
     }
     
 }
